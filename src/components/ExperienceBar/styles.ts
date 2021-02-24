@@ -19,13 +19,23 @@ export const Span = styled.span`
   font-size: 1rem;
 `;
 
-export const ProgressBar = styled.div`
+interface IProgressBarProps {
+  width: string;
+}
+
+export const ProgressBar = styled.div<IProgressBarProps>`
   height: 4px;
-border-radius: 4px;
+  border-radius: 4px;
   background-color: ${colors.green};
+  width: ${props => props.width};
 `;  
 
-export const CurrentProgress = styled.span`
+interface ICurrentProgressProps {
+  left: string;
+}
+
+export const CurrentProgress = styled.span<ICurrentProgressProps>`
+  left: ${props => props.left};
   position: absolute;
   top: 12px;
   transform: translateX(-50%);

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '../../styles/colors';
 
 export const Container = styled.div``;
@@ -39,7 +39,11 @@ export const TimerSeparator = styled.span`
   margin: 0 .5rem;
 `;
 
-export const Button = styled.button`
+interface IButtonProps {
+  buttonActive?: boolean;
+}
+
+export const Button = styled.button<IButtonProps>`
   width: 100%;
   height: 5rem;
   margin-top: 2rem;
@@ -56,8 +60,27 @@ export const Button = styled.button`
   font-size: 1.25rem;
   font-weight: 600;
 
-    transition: background-color .2s  ease;
-  &:hover {
+  transition: background-color .2s  ease;
+
+  &:not(:disabled):hover {
     background-color: ${colors.blueDark};
   }
+
+  ${props => props.buttonActive && css`
+    background-color: ${colors.white};
+    color: ${colors.title};
+
+    &:not(:disabled):hover {
+      background-color: ${colors.red};
+      color: ${colors.white};
+    }
+  `};
+
+  &:disabled {
+    background-color: ${colors.white};
+    color: ${colors.text};
+    cursor: not-allowed;
+  }
+
+  
 `;
