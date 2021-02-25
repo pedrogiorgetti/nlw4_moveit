@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ChallengeContext } from '../../hooks/challenge';
 
 import { Container, Avatar, Content, Name, Level, Icon } from './styles';
 
 const ProfileBar: React.FC = () => {
+
+  const {level} = useContext(ChallengeContext);
+
+
   return (
     <Container>
       <Avatar  src="https://github.com/pedrogiorgetti" />
@@ -12,7 +17,7 @@ const ProfileBar: React.FC = () => {
       <Name>Pedro Giorgetti</Name>
       <Level>
         <Icon src="icons/level.svg" />
-        Level 1
+        Level {level}
       </Level>
       </Content>
     </Container>
