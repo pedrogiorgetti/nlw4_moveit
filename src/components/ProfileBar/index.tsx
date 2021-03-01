@@ -10,7 +10,7 @@ const ProfileBar: React.FC = () => {
 
   return (
     <Container>
-      <Avatar  src="https://github.com/pedrogiorgetti" />
+      <Avatar  src="https://avatars.githubusercontent.com/u/21224517?s=460&u=d4c41cc9fcd4132bc1e903ced2b5091f2165c126&v=4" />
 
       <Content>
 
